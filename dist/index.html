@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower CS</title>
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="./output.css" />
+    <style>
+      .bg-custom-image {
+        background-image: url("./images/flower-02.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .starfield {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        border-radius: 50%;
+        background: white;
+        opacity: 0.8;
+        pointer-events: none;
+        animation: moveUp linear infinite;
+      }
+
+      /* Keyframes for moving stars */
+      @keyframes moveUp {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(-100px);
+        }
+      }
+    </style>
+  </head>
+  <body class="relative h-screen w-full bg-custom-image backdrop-blur-sm">
+    <!-- home section -->
+    <div
+      id="home-page"
+      class="absolute h-screen w-full left-0 top-0 grid lg:grid-cols-2 gap-5 p-5">
+      <!-- section 1 -->
+      <div
+        class="bg-black/40 flex flex-col justify-center p-6 md:p-8 lg:p-10 rounded-md">
+        <!-- text -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl text-gray-100 font-head">
+            Launching Soon
+          </h1>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl text-gray-200 font-head tracking-wider">
+            Our Brand-New Website!
+          </h2>
+          <p
+            class="text-base md:text-[18px] lg:text-[20px] text-gray-200 tracking-wide mt-3 font-sub">
+            We’re busy preparing an exciting new website.<br />
+            Join us soon for a revamped experience and innovative features!
+          </p>
+        </div>
+
+        <!-- subscribe input and button -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-3 font-sub mt-8">
+          <input
+            type="text"
+            class="p-3 w-full md:w-3/4 lg:w-2/3 placeholder:text-gray-300 focus:placeholder:text-gray-400 focus:ring-1 focus:ring-gray-400 text-gray-100 text-base md:text-lg lg:text-xl bg-black/50 duration-300 outline-none rounded-md"
+            placeholder="Enter your email" />
+          <button class="n-btn">Notify Me</button>
+        </div>
+
+        <!-- contact and about button -->
+        <div class="grid grid-cols-2 gap-3 mt-8 font-sub">
+          <button type="button" id="open-contact" class="c-btn">Contact</button>
+
+          <button type="button" id="open-about" class="a-btn">About</button>
+        </div>
+      </div>
+
+      <!-- section 2 -->
+      <div
+        class="bg-black/40 flex flex-col items-center justify-center p-6 md:p-8 lg:p-10s rounded-md">
+        <!-- star background animation -->
+        <div class="starfield"></div>
+
+        <div
+          class="absolute flex flex-col justify-center items-center gap-y-3 md:gap-y-6 lg:gap-y-10">
+          <!-- text -->
+          <div class="tracking-wide md:tracking-wider lg:tracking-widest">
+            <p
+              class="text-gray-200 text-center text-base md:text-[18px] lg:text-xl font-semibold italic font-sub">
+              We’re glad you’re here!<br />
+              We’re busy behind the scenes.<br />
+              Our new site will be up shortly!
+            </p>
+          </div>
+
+          <!-- countdown timer -->
+          <div
+            class="flex justify-center items-center gap-x-8 md:gap-x-[70px] lg:gap-x-[60px] text-gray-200">
+            <div class="flex flex-col items-center justify-center">
+              <p id="days" class="time-head">00</p>
+              <span class="time-sub">Days</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center">
+              <p id="hours" class="time-head">00</p>
+              <span class="time-sub">Hrs</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center">
+              <p id="minute" class="time-head">00</p>
+              <span class="time-sub">Min</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center">
+              <p id="second" class="time-head">00</p>
+              <span class="time-sub">Sec</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about section -->
+    <div
+      id="about-page"
+      class="absolute hidden left-full h-full w-full lg:w-1/2 overflow-x-auto bg-gray-200 transition-all ease-in-out duration-300">
+      <!-- Close button -->
+      <button
+        type="button"
+        id="close-about"
+        class="bg-violet-700 text-gray-300 hover:bg-violet-800 hover:text-gray-100 focus:bg-violet-900 focus:text-white active:bg-violet-950 active:text-gray-200 duration-200 rounded-r-md px-5 py-1 mt-4">
+        <i class="fa-solid fa-xmark text-xl md:text-2xl"></i>
+      </button>
+
+      <!-- Header text -->
+      <div class="p-5 flex justify-center items-center mt-5">
+        <span class="max-w-[30px] md:max-w-[40px]">
+          <img
+            src="./images/flower-icon-02.png"
+            width="100%"
+            alt="Flower Icon" />
+        </span>
+        <span class="bg-gray-950 h-[2px] w-1/2"></span>
+        <h1
+          class="text-xl text-gray-900 md:text-4xl font-semibold font-head uppercase tracking-wider ml-3">
+          About Us
+        </h1>
+      </div>
+
+      <!-- sub text form -->
+      <div class="p-5 flex flex-col justify-center items-center">
+        <!-- Sub text -->
+        <p class="text-left text-base text-gray-800 font-sub">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, itaque
+          sunt! Beatae in ut, quam quibusdam, at nisi, sequi atque reprehenderit
+          facere eligendi sunt! Inventore cupiditate, nostrum tempore quia
+          obcaecati incidunt! Voluptate aliquam natus, eveniet eos dignissimos
+          illum facilis cupiditate, numquam consequuntur temporibus tempore, ex
+          ea. Enim sunt praesentium perferendis!
+        </p>
+
+        <!-- Form -->
+        <div
+          class="font-sub p-5 mt-10 flex flex-col gap-y-5 justify-center items-center w-full max-w-2xl mx-auto">
+          <input
+            class="input-style"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name" />
+
+          <input
+            class="input-style"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email" />
+
+          <textarea
+            class="resize-none input-style"
+            name="message"
+            id="message"
+            placeholder="Your message here..."></textarea>
+
+          <button
+            class="mt-2 w-full max-w-40 p-3 bg-violet-500 text-white rounded-md shadow-sm hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition-colors duration-300">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="p-5 flex items-baseline space-x-4">
+        <h2 class="font-head text-base md:text-xl tracking-wide">Follow Us:</h2>
+        <div
+          class="flex justify-center items-center space-x-6 text-lg md:text-xl text-gray-600">
+          <a
+            href="#"
+            class="hover:text-blue-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-blue-700 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-pink-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-green-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-red-500 transition duration-300 ease-in-out"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div
+        class="px-5 py-8 mb-0 mt-[100px] font-sub bg-zinc-900 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-gray-200 text-base md:text-xl"
+            ><i class="fa-solid fa-location-dot"></i
+          ></span>
+          <address class="text-gray-200 font-light text-[18px]">
+            West Kafrul, Mollapara, Mukti Housing Road, Dhaka
+          </address>
+        </div>
+        <span class="text-gray-200 tracking-wider"
+          >&copy; All rights deserve Flower CS</span
+        >
+      </div>
+    </div>
+
+    <!-- contact section -->
+    <div
+      id="contact-page"
+      class="absolute hidden left-full h-full w-full lg:w-1/2 overflow-x-auto bg-gray-200 transition-all ease-in-out duration-300">
+      <!-- Close button -->
+      <button
+        type="button"
+        id="close-contact"
+        class="bg-violet-700 text-gray-300 hover:bg-violet-800 hover:text-gray-100 focus:bg-violet-900 focus:text-white active:bg-violet-950 active:text-gray-200 duration-200 rounded-r-md px-5 py-1 mt-4">
+        <i class="fa-solid fa-xmark text-xl md:text-2xl"></i>
+      </button>
+
+      <!-- Header text -->
+      <div class="p-5 flex justify-center items-center mt-5">
+        <span class="max-w-[30px] md:max-w-[40px]">
+          <img
+            src="./images/flower-icon-02.png"
+            width="100%"
+            alt="Flower Icon" />
+        </span>
+        <span class="bg-gray-950 h-[2px] w-1/2"></span>
+        <h1
+          class="text-xl text-gray-900 md:text-4xl font-semibold font-head uppercase tracking-wider ml-3">
+          Contact
+        </h1>
+      </div>
+
+      <!-- sub text form -->
+      <div class="p-5 flex flex-col justify-center items-center">
+        <!-- Sub text -->
+        <p class="text-left text-base text-gray-800 font-sub">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, itaque
+          sunt! Beatae in ut, quam quibusdam, at nisi, sequi atque reprehenderit
+          facere eligendi sunt! Inventore cupiditate, nostrum tempore quia
+          obcaecati incidunt! Voluptate aliquam natus, eveniet eos dignissimos
+          illum facilis cupiditate, numquam consequuntur temporibus tempore, ex
+          ea. Enim sunt praesentium perferendis!
+        </p>
+
+        <!-- Form -->
+        <div
+          class="font-sub p-5 mt-10 flex flex-col gap-y-5 justify-center items-center w-full max-w-2xl mx-auto">
+          <input
+            class="input-style"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name" />
+
+          <input
+            class="input-style"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email" />
+
+          <textarea
+            class="resize-none input-style"
+            name="message"
+            id="message"
+            placeholder="Your message here..."></textarea>
+
+          <button
+            class="mt-2 w-full max-w-40 p-3 bg-violet-500 text-white rounded-md shadow-sm hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition-colors duration-300">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="p-5 flex items-baseline space-x-4">
+        <h2 class="font-head text-base md:text-xl tracking-wide">Follow Us:</h2>
+        <div
+          class="flex justify-center items-center space-x-6 text-lg md:text-xl text-gray-600">
+          <a
+            href="#"
+            class="hover:text-blue-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-blue-700 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-pink-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-green-500 transition duration-300 ease-in-out"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-red-500 transition duration-300 ease-in-out"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div
+        class="px-5 py-8 mb-0 mt-[100px] font-sub bg-zinc-900 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-gray-200 text-base md:text-xl"
+            ><i class="fa-solid fa-location-dot"></i
+          ></span>
+          <address class="text-gray-200 font-light text-[18px]">
+            West Kafrul, Mollapara, Mukti Housing Road, Dhaka
+          </address>
+        </div>
+        <span class="text-gray-200 tracking-wider"
+          >&copy; All rights deserve Flower CS</span
+        >
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

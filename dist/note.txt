@@ -1,0 +1,1 @@
+      class="bg-gray-100 pt-1  lg:absolute lg:h-dvh lg:w-[50%] lg:left-[100%] lg:overflow-x-auto transition-all ease-in-out duration-1000">
