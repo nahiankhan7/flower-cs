@@ -6,37 +6,27 @@ const contactPage = document.getElementById("contact-page");
 const openContact = document.getElementById("open-contact");
 const closeContact = document.getElementById("close-contact");
 
-// contact event handler
+// Contact event handler
 openContact?.addEventListener("click", () => {
-  contactPage?.classList.remove("hidden");
-  setTimeout(() => {
-    contactPage?.classList.remove("left-full");
-  }, 100);
+  contactPage?.classList.toggle("right-full");
 });
 
 closeContact?.addEventListener("click", () => {
-  contactPage?.classList.add("left-full");
-  setTimeout(() => {
-    contactPage?.classList.add("hidden");
-  }, 100);
+  contactPage?.classList.toggle("right-full");
 });
 
-// about event handler
+// About event handler
 openAbout?.addEventListener("click", () => {
-  aboutPage?.classList.remove("hidden");
-  setTimeout(() => {
-    aboutPage?.classList.remove("left-full");
-  }, 100);
+  aboutPage?.classList.toggle("left-full");
 });
 
 closeAbout?.addEventListener("click", () => {
-  aboutPage?.classList.add("left-full");
-  setTimeout(() => {
-    aboutPage?.classList.add("hidden");
-  }, 100);
+  aboutPage?.classList.toggle("left-full");
 });
 
+// Starfield Animation
 const starfield = document.querySelector(".starfield");
+
 // Function to create a star element
 function createStar() {
   const star = document.createElement("div");
@@ -56,12 +46,14 @@ function createStar() {
 
   return star;
 }
+
 // Generate a number of stars and append them to starfield
 function generateStars(numStars) {
   for (let i = 0; i < numStars; i++) {
     starfield.appendChild(createStar());
   }
 }
+
 // Generate 100 stars
 generateStars(100);
 
@@ -74,11 +66,11 @@ const x = setInterval(() => {
   const showMinutes = document.getElementById("minute");
   const showSeconds = document.getElementById("second");
 
-  // get new date
+  // Get new date
   const currentTime = new Date().getTime();
   const distance = startDate - currentTime;
 
-  // calculate time
+  // Calculate time
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -86,7 +78,7 @@ const x = setInterval(() => {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // add DOM
+  // Update DOM
   showDays.innerHTML = days;
   showHours.innerHTML = hours < 10 ? "0" + hours : hours;
   showMinutes.innerHTML = minutes < 10 ? "0" + minutes : minutes;
